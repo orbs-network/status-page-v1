@@ -1,0 +1,13 @@
+{
+  "name": "status-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:orbs-network/status-page.git",
+  "author": "Kirill Maksimov <kirill@orbs.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "nebula": "https://github.com/orbs-network/nebula.git#master"
+  }
+}

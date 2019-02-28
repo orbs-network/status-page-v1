@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Status page</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        td a {
+            color: aliceblue;
+        }
+
+        html, body { margin: 0; padding: 0; }
+        
+        .centeredDiv { margin-right: auto; margin-left: auto; width: 800px; }
+    </style>
+</head>
+<body>
+    <div class="centeredDiv">
+        <table>
+            <tr>
+                <td><!-- empty space --></td>
+                <% _.forEach(vchains, (vcid) => {%>
+                    <td><%= vcid %></td>
+                <% }) %>
+            </tr>
+        
+            <% _.forEach(_.keys(state), (node) => {%>
+            <tr>
+                <td><%= node %></td>
+                <% _.forEach(vchains, (vcid) => {
+                    const data = _.get(state, `${node}.${vcid}`);
+                    const { blockHeight, status, version, commit } = data;
+                    const shortCommit = !_.isEmpty(commit) ? commit.substring(0, 8) : "";
+                %>
+                    <td style="background-color: <%= status %>">
+                        <% if (!data || _.isEmpty(data) || (!version && blockHeight == 0)) { %> 
+                            no data 
+                        <% } else { %>
+                            <%= blockHeight %>
+                            <br/><%= version %><br/>
+                            <a href="https://github.com/orbs-network/orbs-network-go/commit/<%= shortCommit %>"><%= shortCommit %></a>
+                        <% } %>
+                    </td>
+                <% }) %>
+            </tr>
+            <% }) %>    
+        </table>                
+    </div>
+</body>
+</html>
