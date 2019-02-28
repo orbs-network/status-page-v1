@@ -43,7 +43,9 @@ app.get('/', (req, res) => {
     const template = _.template(fs.readFileSync('./templates/index.html').toString());
     res.send(template({
         state,
-        vchains
+        vchains,
+        ips,
+        getEndpoint
     }));
 });
 

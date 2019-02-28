@@ -15,9 +15,29 @@
             color: aliceblue;
         }
 
+        .green {
+            background-color: seagreen;
+        }
+
+        .red {
+            background-color: crimson;
+        }
+
         html, body { margin: 0; padding: 0; }
         
-        .centeredDiv { margin-right: auto; margin-left: auto; width: 800px; }
+        .centeredDiv { 
+            margin-right: auto;
+            margin-left: auto;
+            width: <%= (_.size(vchains) + 1) * 150 %>px;
+        }
+
+        .centeredDiv table {
+            width: 100%;
+        }
+
+        .node-name {
+            font-size: 14pt;
+        }
     </style>
 </head>
 <body>
@@ -26,25 +46,27 @@
             <tr>
                 <td><!-- empty space --></td>
                 <% _.forEach(vchains, (vcid) => {%>
-                    <td><%= vcid %></td>
+                    <td>vc<%= vcid %></td>
                 <% }) %>
             </tr>
         
             <% _.forEach(_.keys(state), (node) => {%>
             <tr>
-                <td><%= node %></td>
+                <td class="node-name"><%= node %></td>
                 <% _.forEach(vchains, (vcid) => {
                     const data = _.get(state, `${node}.${vcid}`);
                     const { blockHeight, status, version, commit } = data;
                     const shortCommit = !_.isEmpty(commit) ? commit.substring(0, 8) : "";
+                    const githubLink = `https://github.com/orbs-network/orbs-network-go/commit/${shortCommit}`;
+                    const metricsLink = `http://${getEndpoint(ips[node], vcid)}/metrics`;
                 %>
-                    <td style="background-color: <%= status %>">
+                    <td class="<%= status %>">
                         <% if (!data || _.isEmpty(data) || (!version && blockHeight == 0)) { %> 
-                            no data 
+                            <a href="<%= metricsLink %>">no data</a>
                         <% } else { %>
-                            <%= blockHeight %>
+                            <a href="<%= metricsLink %>"><%= blockHeight %></a>
                             <br/><%= version %><br/>
-                            <a href="https://github.com/orbs-network/orbs-network-go/commit/<%= shortCommit %>"><%= shortCommit %></a>
+                            <a href="<%= githubLink %>"><%= shortCommit %></a>
                         <% } %>
                     </td>
                 <% }) %>
