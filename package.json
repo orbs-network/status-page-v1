@@ -7,8 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
-    "lodash": "^4.17.11",
-    "nebula": "https://github.com/orbs-network/nebula.git#master"
+    "lodash": "^4.17.15",
+    "@orbs-network/orbs-nebula": "1.5.0"
   },
   "scripts": {
     "start": "node index.js"

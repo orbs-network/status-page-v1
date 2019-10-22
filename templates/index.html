@@ -2,9 +2,12 @@
 <html>
 <head>
     <title>Status page</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <style>
         body {
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+            font-family: "montserrat", "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+            background-color: #06142e;
+            color: white;
         }
 
         td {
@@ -12,15 +15,20 @@
         }
 
         td a {
+            font-size: 13px;
             color: aliceblue;
         }
 
         .green {
-            background-color: seagreen;
+            background-color: #66bb6a;
         }
 
         .red {
-            background-color: crimson;
+            background-color: #d32f2f;
+        }
+
+        .yellow {
+            background-color: gold;
         }
 
         html, body { margin: 0; padding: 0; }
@@ -36,17 +44,38 @@
         }
 
         .node-name {
-            font-size: 14pt;
+            font-size: 13px;
+        }
+
+        .header img {
+            max-height: 70px;
+            padding: 10px;
+            padding-left: 20px;
+            vertical-align: middle;
+            float: left;
+        }
+
+        .header h1 {
+            font-size: 60px;
+            font-weight: 300;
+            line-height: 60px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="centeredDiv">
+        <div class="header">
+            <img src="0RBS-white-version.png">
+            <h1>
+            Node Status
+            </h1>
+        </div>
         <table>
             <tr>
                 <td><!-- empty space --></td>
                 <% _.forEach(vchains, (vcid) => {%>
-                    <td>vc<%= vcid %></td>
+                    <td><%= vcid %></td>
                 <% }) %>
             </tr>
         
@@ -58,15 +87,14 @@
                     const { blockHeight, status, version, commit } = data;
                     const shortCommit = !_.isEmpty(commit) ? commit.substring(0, 8) : "";
                     const githubLink = `https://github.com/orbs-network/orbs-network-go/commit/${shortCommit}`;
-                    const metricsLink = `http://${getEndpoint(ips[node], vcid)}/metrics`;
+                    const metricsLink = `http://${getEndpoint(_.find(ips, { name: node }).host, vcid)}/metrics`;
                 %>
-                    <td class="<%= status %>">
+                    <td class="<%= status || 'yellow' %>">
                         <% if (!data || _.isEmpty(data) || (!version && blockHeight == 0)) { %> 
                             <a href="<%= metricsLink %>">no data</a>
                         <% } else { %>
                             <a href="<%= metricsLink %>"><%= blockHeight %></a>
-                            <br/><%= version %><br/>
-                            <a href="<%= githubLink %>"><%= shortCommit %></a>
+                            <br/><a href="<%= githubLink %>" alt="<%= version %> <%= shortCommit %>"><%= version %></a>
                         <% } %>
                     </td>
                 <% }) %>
