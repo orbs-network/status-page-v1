@@ -61,7 +61,21 @@
             line-height: 60px;
             text-align: center;
         }
+
+        .invisible {
+            display: none;
+        }
+
+        .settings {
+            font-family:  'Courier New', Courier, monospace;
+        }
     </style>
+
+    <script>
+        function toggleSettings(idx) {
+            document.querySelector("#settings-pane-" + idx).classList.toggle("invisible");
+        }
+    </script>
 </head>
 <body>
     <div class="centeredDiv">
@@ -79,7 +93,7 @@
                 <% }) %>
             </tr>
         
-            <% _.forEach(_.keys(state), (node) => {%>
+            <% _.forEach(_.keys(state), (node, idx) => {%>
             <tr>
                 <td class="node-name"><%= node %></td>
                 <% _.forEach(vchains, (vcid) => {
@@ -98,6 +112,30 @@
                         <% } %>
                     </td>
                 <% }) %>
+                <td class="settings"><a href="#" onclick="toggleSettings(<%= idx %>)" alt="SDK connection settings"><img src="icons8-settings.svg"></a></td>
+            </tr>
+            <tr id="settings-pane-<%= idx %>" class="invisible">
+                <td class="node-name"></td>
+                <td colspan="<%= vchains.length %>" class="settings">
+                # connection settings <br/>
+                <% _.forEach(vchains, (vcid) => { 
+                    const endpoint = `http://${getEndpoint(_.find(ips, { name: node }).host, vcid)}`
+                %>
+                    ORBS_VCHAIN=<%= vcid %><br/>
+                    ORBS_NODE_ADDRESS=<%= endpoint %><br/><br/>
+                <% }) %>
+
+                // connection settings as json
+
+                <% _.forEach(vchains, (vcid) => { 
+                    const settings = JSON.stringify({
+                        vchain: vcid,
+                        endpoint: `http://${getEndpoint(_.find(ips, { name: node }).host, vcid)}`,
+                    }, 2, 2)
+                %>
+                    <pre><%= settings %></pre>
+                <% }) %>
+                </td>
             </tr>
             <% }) %>    
         </table>                
