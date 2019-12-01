@@ -84,23 +84,24 @@
                 <td class="node-name"><%= node %></td>
                 <% _.forEach(vchains, (vcid) => {
                     const data = _.get(state, `${node}.${vcid}`);
-                    const { blockHeight, status, version, commit } = data;
+                    const placeholder = { blockHeight: 0, status: "", version: "", commit: "", created_at: "" };
+                    const { blockHeight, status, version, commit, created_at } = data || placeholder;
                     const shortCommit = !_.isEmpty(commit) ? commit.substring(0, 8) : "";
                     const githubLink = `https://github.com/orbs-network/orbs-network-go/commit/${shortCommit}`;
                     const metricsLink = `http://${getEndpoint(_.find(ips, { name: node }).host, vcid)}/metrics`;
                 %>
                     <td class="<%= status || 'yellow' %>">
                         <% if (!data || _.isEmpty(data) || (!version && blockHeight == 0)) { %> 
-                            <a href="<%= metricsLink %>">no data</a>
+                            <a href="<%= metricsLink %>" title="<%= created_at %>">no data</a>
                         <% } else { %>
-                            <a href="<%= metricsLink %>"><%= blockHeight %></a>
+                            <a href="<%= metricsLink %>" title="<%= created_at %>"><%= blockHeight %></a>
                             <br/><a href="<%= githubLink %>" alt="<%= version %> <%= shortCommit %>"><%= version %></a>
                         <% } %>
                     </td>
                 <% }) %>
             </tr>
-            <% }) %>    
-        </table>                
+            <% }) %>
+        </table>
     </div>
 </body>
 </html>
