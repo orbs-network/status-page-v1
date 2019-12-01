@@ -92,10 +92,10 @@
                 %>
                     <td class="<%= status || 'yellow' %>">
                         <% if (!data || _.isEmpty(data) || (!version && blockHeight == 0)) { %> 
-                            <a href="<%= metricsLink %>" title="<%= created_at %>">no data</a>
+                            <a href="<%= metricsLink %>" title="<%= created_at %>" target="_blank">no data</a>
                         <% } else { %>
-                            <a href="<%= metricsLink %>" title="<%= created_at %>"><%= blockHeight %></a>
-                            <br/><a href="<%= githubLink %>" alt="<%= version %> <%= shortCommit %>"><%= version %></a>
+                            <a href="<%= metricsLink %>" title="<%= created_at %>" target="_blank"><%= blockHeight %></a>
+                            <br/><a href="<%= githubLink %>" alt="<%= version %> <%= shortCommit %>" target="_blank"><%= version %></a>
                         <% } %>
                     </td>
                 <% }) %>
