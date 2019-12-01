@@ -79,7 +79,7 @@
                 <% }) %>
             </tr>
         
-            <% _.forEach(_.keys(state), (node) => {%>
+            <% _.forEach(_.map(ips, "name"), (node) => {%>
             <tr>
                 <td class="node-name"><%= node %></td>
                 <% _.forEach(vchains, (vcid) => {
