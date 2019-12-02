@@ -65,6 +65,14 @@ async function removeOldRecords(batches) {
 }
 
 async function detectGoingDown() {
+    return detectChanges("green", "red");
+}
+
+async function detectGoingUp() {
+    return detectChanges("red", "green");
+}
+
+async function detectChanges(beforeState, afterState) {
     const transform = (status, row) => {
         const validatorBucket = status[row.validator] || [];
         validatorBucket.push(row.vchain);
@@ -73,14 +81,14 @@ async function detectGoingDown() {
     };
 
     const lastBatch = await getLastBatch();
-    const redNow = await db("status").where({ batch: lastBatch - 1, status: "red" }).select("validator", "vchain", "status").distinct();
-    const wereGreen = await db("status").where({ batch: lastBatch - 2, status: "green" }).select("validator", "vchain", "status").distinct();
+    const afterRaw = await db("status").where({ batch: lastBatch - 1, status: afterState }).select("validator", "vchain", "status").distinct();
+    const beforeRaw = await db("status").where({ batch: lastBatch - 2, status: beforeState }).select("validator", "vchain", "status").distinct();
 
-    const redStatus = reduce(redNow, transform, {});
-    const greenStatus = reduce(wereGreen, transform, {});
+    const after = reduce(afterRaw, transform, {});
+    const before = reduce(beforeRaw, transform, {});
 
-    return reject(map(redStatus, (vchains, validator) => {
-        const redVchains = intersection(vchains, greenStatus[validator]);
+    return reject(map(after, (vchains, validator) => {
+        const redVchains = intersection(vchains, before[validator]);
         if (!isEmpty(redVchains)) {
             return { validator, vchains: redVchains }
         }
@@ -100,4 +108,5 @@ module.exports = {
     getSubscribers,
 
     detectGoingDown,
+    detectGoingUp,
 }

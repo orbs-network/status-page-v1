@@ -2,8 +2,13 @@ const Telegraf = require("telegraf");
 const TelegrafInlineMenu = require("telegraf-inline-menu");
 const { STATUS_PAGE, TELEGRAM_TOKEN, IPS } = process.env;
 const ips = JSON.parse(IPS || `{"nodes":[]}`).nodes;
-const { map, keys } = require("lodash");
+const { map, partial, isEmpty } = require("lodash");
 const db = require("./db");
+
+if (isEmpty(TELEGRAM_TOKEN)) {
+    console.log("No telegram token found!")
+    return;
+}
 
 const bot = new Telegraf(TELEGRAM_TOKEN);
 
@@ -40,16 +45,25 @@ function buildMenu() {
     return menu;
 }
 
-async function pollForNotifications() {
-    map(await db.detectGoingDown(), async ({ validator, vchains }) => {
-        const subscribers = await db.getSubscribers({ validator });
-        map(subscribers, (subscriber) => {
-            const multipleChains = vchains.length > 1;
-            const message = `${multipleChains ? 'vchains' : 'vchain'} ${vchains.join(", ")} ${multipleChains ? 'are' : 'is'} down for ${validator}!`;
-            bot.telegram.sendMessage(subscriber, message)
-        });
-
+async function notifyAboutChanges(state, { validator, vchains }) {
+    const subscribers = await db.getSubscribers({ validator });
+    map(subscribers, (subscriber) => {
+        const multipleChains = vchains.length > 1;
+        const message = `${multipleChains ? 'vchains' : 'vchain'} ${vchains.join(", ")} ${multipleChains ? 'are' : 'is'} ${state} for ${validator}!`;
+        bot.telegram.sendMessage(subscriber, message)
     });
+}
+
+async function pollForNotifications() {
+    const goingDown = await db.detectGoingDown();
+    map(goingDown, partial(notifyAboutChanges, "down"));
+
+    console.log("down", goingDown);
+
+    const goingUp = await db.detectGoingUp();
+
+    console.log("up", goingUp)
+    map(goingUp, partial(notifyAboutChanges, "up"));
 }
 
 bot.use(buildMenu().init());
