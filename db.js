@@ -20,6 +20,25 @@ async function addStatus(batch, validator, vchain, data) {
     });
 }
 
+async function subscribe(validator, telegramId, telegramUsername) {
+    return db("telegram_notifications").insert({
+        validator,
+        telegramId,
+        telegramUsername,
+    });
+}
+
+async function unsubscribe(validator, telegramId) {
+    return db("telegram_notifications").where({
+        validator,
+        telegramId,
+    }).del();
+}
+
+async function getSubscription(options) {
+    return db("telegram_notifications").where(options).first();
+}
+
 async function getLastBatch() {
     return (await db("status").max("batch"))[0].max || 0;
 }
@@ -46,5 +65,9 @@ module.exports = {
     addStatus,
     getLastBatch,
     getStatus,
-    removeOldRecords
+    removeOldRecords,
+
+    subscribe,
+    unsubscribe,
+    getSubscription,
 }
