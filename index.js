@@ -35,6 +35,8 @@ db.migrate().then(query);
 
 setInterval(cleanup, 60000);
 
+require("./telegram"); // start telegram bot
+
 app.use(express.static("public"));
 
 app.get("/", async (req, res) => {

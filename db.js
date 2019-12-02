@@ -1,5 +1,5 @@
 const db = require("knex")(require("./knexfile")[process.env.NODE_ENV || "development"]);
-const { get, reduce } = require("lodash");
+const { get, reduce, map, intersection, reject, isEmpty } = require("lodash");
 
 async function migrate() {
     return db.migrate.latest();
@@ -18,6 +18,29 @@ async function addStatus(batch, validator, vchain, data) {
         commit,
         ethereumSyncStatus: get(ethereum, "syncStatus"),
     });
+}
+
+async function subscribe(validator, telegramId, telegramUsername) {
+    return db("telegram_notifications").insert({
+        validator,
+        telegramId,
+        telegramUsername,
+    });
+}
+
+async function unsubscribe(validator, telegramId) {
+    return db("telegram_notifications").where({
+        validator,
+        telegramId,
+    }).del();
+}
+
+async function getSubscription(options) {
+    return db("telegram_notifications").where(options).first();
+}
+
+async function getSubscribers(options) {
+    return map(await db("telegram_notifications").where(options).select("telegramId"), "telegramId");
 }
 
 async function getLastBatch() {
@@ -41,10 +64,49 @@ async function removeOldRecords(batches) {
     return db("status").where("batch", "<", lastBatch - batches).del();
 }
 
+async function detectGoingDown() {
+    return detectChanges("green", "red");
+}
+
+async function detectGoingUp() {
+    return detectChanges("red", "green");
+}
+
+async function detectChanges(beforeState, afterState) {
+    const transform = (status, row) => {
+        const validatorBucket = status[row.validator] || [];
+        validatorBucket.push(row.vchain);
+        status[row.validator] = validatorBucket;
+        return status;
+    };
+
+    const lastBatch = await getLastBatch();
+    const afterRaw = await db("status").where({ batch: lastBatch - 1, status: afterState }).select("validator", "vchain", "status").distinct();
+    const beforeRaw = await db("status").where({ batch: lastBatch - 2, status: beforeState }).select("validator", "vchain", "status").distinct();
+
+    const after = reduce(afterRaw, transform, {});
+    const before = reduce(beforeRaw, transform, {});
+
+    return reject(map(after, (vchains, validator) => {
+        const redVchains = intersection(vchains, before[validator]);
+        if (!isEmpty(redVchains)) {
+            return { validator, vchains: redVchains }
+        }
+    }), isEmpty);
+}
+
 module.exports = {
     migrate,
     addStatus,
     getLastBatch,
     getStatus,
-    removeOldRecords
+    removeOldRecords,
+
+    subscribe,
+    unsubscribe,
+    getSubscription,
+    getSubscribers,
+
+    detectGoingDown,
+    detectGoingUp,
 }
