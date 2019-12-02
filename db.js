@@ -1,5 +1,5 @@
 const db = require("knex")(require("./knexfile")[process.env.NODE_ENV || "development"]);
-const { get, reduce } = require("lodash");
+const { get, reduce, map, intersection, reject, isEmpty } = require("lodash");
 
 async function migrate() {
     return db.migrate.latest();
@@ -39,6 +39,10 @@ async function getSubscription(options) {
     return db("telegram_notifications").where(options).first();
 }
 
+async function getSubscribers(options) {
+    return map(await db("telegram_notifications").where(options).select("telegramId"), "telegramId");
+}
+
 async function getLastBatch() {
     return (await db("status").max("batch"))[0].max || 0;
 }
@@ -60,6 +64,29 @@ async function removeOldRecords(batches) {
     return db("status").where("batch", "<", lastBatch - batches).del();
 }
 
+async function detectGoingDown() {
+    const transform = (status, row) => {
+        const validatorBucket = status[row.validator] || [];
+        validatorBucket.push(row.vchain);
+        status[row.validator] = validatorBucket;
+        return status;
+    };
+
+    const lastBatch = await getLastBatch();
+    const redNow = await db("status").where({ batch: lastBatch - 1, status: "red" }).select("validator", "vchain", "status").distinct();
+    const wereGreen = await db("status").where({ batch: lastBatch - 2, status: "green" }).select("validator", "vchain", "status").distinct();
+
+    const redStatus = reduce(redNow, transform, {});
+    const greenStatus = reduce(wereGreen, transform, {});
+
+    return reject(map(redStatus, (vchains, validator) => {
+        const redVchains = intersection(vchains, greenStatus[validator]);
+        if (!isEmpty(redVchains)) {
+            return { validator, vchains: redVchains }
+        }
+    }), isEmpty);
+}
+
 module.exports = {
     migrate,
     addStatus,
@@ -70,4 +97,7 @@ module.exports = {
     subscribe,
     unsubscribe,
     getSubscription,
+    getSubscribers,
+
+    detectGoingDown,
 }
