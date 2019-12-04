@@ -10,13 +10,17 @@
             color: white;
         }
 
+        a {
+            color: aliceblue;
+            text-decoration: none;
+        }
+
         td {
             padding: 10px;
         }
 
         td a {
-            font-size: 13px;
-            color: aliceblue;
+            font-size: 13px;            
         }
 
         .green {
@@ -61,12 +65,28 @@
             line-height: 60px;
             text-align: center;
         }
+
+        .navigation {
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navigation .before {
+            float: left;
+            margin: 10px;
+        }
+
+        .navigation .after {
+            float: right;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="centeredDiv">
         <div class="header">
-            <img src="0RBS-white-version.png">
+            <a href="/"><img src="/0RBS-white-version.png"></a>
             <h1>
             Network Status
             </h1>
@@ -102,6 +122,10 @@
             </tr>
             <% }) %>
         </table>
+        <div class="navigation">
+            <div class="before"><% if(before) { %><a href="/status/<%= before %>">&larr;</a><% } %></div>
+            <div class="after"><% if(after) { %><a href="/status/<%= after %>">&rarr;</a><% } %></div>
+        </div>
     </div>
 </body>
 </html>
