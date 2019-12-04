@@ -2,7 +2,7 @@ const Telegraf = require("telegraf");
 const TelegrafInlineMenu = require("telegraf-inline-menu");
 const { STATUS_PAGE, TELEGRAM_TOKEN, IPS } = process.env;
 const ips = JSON.parse(IPS || `{"nodes":[]}`).nodes;
-const { map, partial, isEmpty } = require("lodash");
+const { map, partial, isEmpty, includes, reduce, find } = require("lodash");
 const db = require("./db");
 
 if (isEmpty(TELEGRAM_TOKEN)) {
@@ -45,25 +45,42 @@ function buildMenu() {
     return menu;
 }
 
-async function notifyAboutChanges(state, { validator, vchains }) {
-    const subscribers = await db.getSubscribers({ validator });
-    map(subscribers, (subscriber) => {
+async function notifyAboutChanges(lastBatch, state, validators, subscriber) {
+    const lines = map(validators, ({ validator, vchains }) => {
         const multipleChains = vchains.length > 1;
-        const message = `${multipleChains ? 'vchains' : 'vchain'} ${vchains.join(", ")} ${multipleChains ? 'are' : 'is'} ${state} for ${validator}!`;
-        bot.telegram.sendMessage(subscriber, message)
+        return `${multipleChains ? 'vchains' : 'vchain'} ${vchains.join(", ")} ${multipleChains ? 'are' : 'is'} ${state} for ${validator}`;
     });
+
+    if (!isEmpty(lines)) {
+        lines.push(`\n${STATUS_PAGE}/status/${lastBatch}`);
+        bot.telegram.sendMessage(subscriber, lines.join("\n"))
+    }
+}
+
+function getValidatorsPerSubscriber(subscriptions, validators) {
+    return reduce(subscriptions, (data, subscription) => {
+        if (isEmpty(data[subscription.telegramId])) {
+            data[subscription.telegramId] = [];
+        }
+
+        const affectedValidators = find(validators, { validator: subscription.validator});
+        if (!isEmpty(affectedValidators)) {
+            data[subscription.telegramId].push(affectedValidators);
+        }
+
+        return data;
+    }, {})
 }
 
 async function pollForNotifications() {
-    const goingDown = await db.detectGoingDown();
-    map(goingDown, partial(notifyAboutChanges, "down"));
+    const lastBatch = await db.getLastBatch();
+    const goingDown = await db.detectGoingDown(lastBatch);
+    const goingUp = await db.detectGoingUp(lastBatch);
 
-    console.log("down", goingDown);
+    const subscriptions = await db.getSubscribers(map(goingDown, "validator"));
 
-    const goingUp = await db.detectGoingUp();
-
-    console.log("up", goingUp)
-    map(goingUp, partial(notifyAboutChanges, "up"));
+    map(getValidatorsPerSubscriber(subscriptions, goingDown), partial(notifyAboutChanges, lastBatch, "down"));    
+    map(getValidatorsPerSubscriber(subscriptions, goingUp), partial(notifyAboutChanges, lastBatch, "up"));
 }
 
 bot.use(buildMenu().init());

@@ -39,8 +39,8 @@ async function getSubscription(options) {
     return db("telegram_notifications").where(options).first();
 }
 
-async function getSubscribers(options) {
-    return map(await db("telegram_notifications").where(options).select("telegramId"), "telegramId");
+async function getSubscribers(validators) {
+    return await db("telegram_notifications").whereIn("validator", validators).select("telegramId", "validator").distinct();
 }
 
 async function getLastBatch() {
@@ -63,15 +63,15 @@ async function removeOldRecords(batches) {
     return db("status").where("batch", "<", lastBatch - batches).del();
 }
 
-async function detectGoingDown() {
-    return detectChanges("green", "red");
+async function detectGoingDown(lastBatch) {
+    return detectChanges(lastBatch, "green", "red");
 }
 
-async function detectGoingUp() {
-    return detectChanges("red", "green");
+async function detectGoingUp(lastBatch) {
+    return detectChanges(lastBatch, "red", "green");
 }
 
-async function detectChanges(beforeState, afterState) {
+async function detectChanges(lastBatch, beforeState, afterState) {
     const transform = (status, row) => {
         const validatorBucket = status[row.validator] || [];
         validatorBucket.push(row.vchain);
@@ -79,7 +79,6 @@ async function detectChanges(beforeState, afterState) {
         return status;
     };
 
-    const lastBatch = await getLastBatch();
     const afterRaw = await db("status").where({ batch: lastBatch - 1, status: afterState }).select("validator", "vchain", "status").distinct();
     const beforeRaw = await db("status").where({ batch: lastBatch - 2, status: beforeState }).select("validator", "vchain", "status").distinct();
 
