@@ -46,9 +46,10 @@ function buildMenu() {
 }
 
 async function notifyAboutChanges(lastBatch, state, validators, subscriber) {
-    const lines = map(validators, ({ validator, vchains }) => {
-        const multipleChains = vchains.length > 1;
-        return `${multipleChains ? 'vchains' : 'vchain'} ${vchains.join(", ")} ${multipleChains ? 'are' : 'is'} ${state} for ${validator}`;
+    console.log(getValidatorsPerVchain(validators))
+
+    const lines = map(getValidatorsPerVchain(validators), (validators, vchain) => {
+        return `vchain ${vchain} is ${state} for ${validators.length} validator${validators.length > 1 ? 's' : ''}: ${validators.join(", ")}`;
     });
 
     if (!isEmpty(lines)) {
@@ -67,6 +68,20 @@ function getValidatorsPerSubscriber(subscriptions, validators) {
         if (!isEmpty(affectedValidators)) {
             data[subscription.telegramId].push(affectedValidators);
         }
+
+        return data;
+    }, {})
+}
+
+function getValidatorsPerVchain(validators) {
+    return reduce(validators, (data, { validator, vchains }) => {
+        map(vchains, vchain => {
+            if (isEmpty(data[vchain])) {
+                data[vchain] = [];
+            }
+
+            data[vchain].push(validator);
+        })
 
         return data;
     }, {})
