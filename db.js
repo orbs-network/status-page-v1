@@ -47,8 +47,7 @@ async function getLastBatch() {
     return (await db("status").max("batch"))[0].max || 0;
 }
 
-async function getStatus() {
-    const lastBatch = await getLastBatch();
+async function getStatus(lastBatch) {
     const rows = await db("status").where({ batch: lastBatch - 1 }).orderBy("validator", "asc");
 
     return reduce(rows, (status, row) => {
