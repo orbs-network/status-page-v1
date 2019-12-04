@@ -2,7 +2,7 @@ const Telegraf = require("telegraf");
 const TelegrafInlineMenu = require("telegraf-inline-menu");
 const { STATUS_PAGE, TELEGRAM_TOKEN, IPS } = process.env;
 const ips = JSON.parse(IPS || `{"nodes":[]}`).nodes;
-const { map, partial, isEmpty, includes, reduce, find } = require("lodash");
+const { map, partial, isEmpty, union, reduce, find } = require("lodash");
 const db = require("./db");
 
 if (isEmpty(TELEGRAM_TOKEN)) {
@@ -46,8 +46,6 @@ function buildMenu() {
 }
 
 async function notifyAboutChanges(lastBatch, state, validators, subscriber) {
-    console.log(getValidatorsPerVchain(validators))
-
     const lines = map(getValidatorsPerVchain(validators), (validators, vchain) => {
         return `vchain ${vchain} is ${state} for ${validators.length} validator${validators.length > 1 ? 's' : ''}: ${validators.join(", ")}`;
     });
@@ -92,7 +90,7 @@ async function pollForNotifications() {
     const goingDown = await db.detectGoingDown(lastBatch);
     const goingUp = await db.detectGoingUp(lastBatch);
 
-    const subscriptions = await db.getSubscribers(map(goingDown, "validator"));
+    const subscriptions = await db.getSubscribers(map(union(goingUp, goingDown), "validator"));
 
     map(getValidatorsPerSubscriber(subscriptions, goingDown), partial(notifyAboutChanges, lastBatch, "down"));    
     map(getValidatorsPerSubscriber(subscriptions, goingUp), partial(notifyAboutChanges, lastBatch, "up"));
