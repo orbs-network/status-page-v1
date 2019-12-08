@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT || 3000;
 const fs = require("fs");
 const _ = require("lodash");
-const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
+const { getStatus, getEndpoint } = require("./metrics"); // @orbs-network/orbs-nebula/lib/metrics
 
 const vchains = process.env.VCHAINS.split(",");
 const ips = JSON.parse(process.env.IPS || `{"nodes":[]}`).nodes;
@@ -17,7 +17,7 @@ function query() {
 
         _.map(vchains, async (vchain) => {
             try {
-                const status = await getStatus({ data: getEndpoint(host, vchain) }, 1000, 60000);
+                const status = await getStatus({ data: getEndpoint(host, vchain) }, 3000, 60000, 1);
                 await db.addStatus(batch + 1, name, Number(vchain), status.data);
             } catch (e) {
                 console.log(e);
