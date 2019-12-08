@@ -17,7 +17,7 @@ function query() {
 
         _.map(vchains, async (vchain) => {
             try {
-                const status = await getStatus({ data: getEndpoint(host, vchain) }, 5000, 60000);
+                const status = await getStatus({ data: getEndpoint(host, vchain) }, 1000, 60000);
                 await db.addStatus(batch + 1, name, Number(vchain), status.data);
             } catch (e) {
                 console.log(e);
