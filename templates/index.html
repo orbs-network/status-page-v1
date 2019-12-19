@@ -81,6 +81,14 @@
             float: right;
             margin: 10px;
         }
+
+        .vcid {
+            font-size: 16px;
+        }
+
+        .description {
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -94,8 +102,17 @@
         <table>
             <tr>
                 <td><!-- empty space --></td>
-                <% _.forEach(vchains, (vcid) => {%>
-                    <td><%= vcid %></td>
+                <% _.forEach(vchains, (vcid) => {
+                    const description = descriptions[vcid];
+                %>
+                    <td><span class="vcid"><%= vcid %></span>
+                    <% if (!_.isEmpty(descriptions)) { %>
+                        <br/>
+                        <span class="description">
+                            <%= description || "&nbsp;" %>
+                        </span>
+                    <% } %>
+                    </td>
                 <% }) %>
             </tr>
         

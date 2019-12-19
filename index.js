@@ -6,6 +6,7 @@ const _ = require("lodash");
 const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
 
 const vchains = process.env.VCHAINS.split(",");
+const descriptions = JSON.parse(process.env.VCHAIN_DESCRIPTIONS || `{}`);
 const ips = JSON.parse(process.env.IPS || `{"nodes":[]}`).nodes;
 const recordsRetention = Number(process.env.RETENTION || 60);
 
@@ -52,6 +53,7 @@ async function showStatus(req, res) {
     res.send(template({
         state,
         vchains,
+        descriptions,
         ips,
         getEndpoint,
         before,
