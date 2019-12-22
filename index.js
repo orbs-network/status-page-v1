@@ -1,5 +1,4 @@
-const express = require("express")
-const app = express()
+const express = require("express");
 const port = process.env.PORT || 3000;
 const fs = require("fs");
 const _ = require("lodash");
@@ -31,15 +30,6 @@ function cleanup() {
     db.removeOldRecords(recordsRetention);
 }
 
-setInterval(query, 60000);
-db.migrate().then(query);
-
-setInterval(cleanup, 60000);
-
-require("./telegram"); // start telegram bot
-
-app.use(express.static("public"));
-
 async function showStatus(req, res) {
     const statusId = Number(req.params.statusId);
     const lastBatch = await db.getLastBatch();
@@ -61,8 +51,26 @@ async function showStatus(req, res) {
     }));
 }
 
-app.get("/", showStatus);
+function main(app) {
+    setInterval(query, 60000);
+    db.migrate().then(query);
+    
+    setInterval(cleanup, 60000);
+    
+    require("./telegram"); // start telegram bot
+    
+    app.use(express.static("public"));
+    
+    app.get("/", showStatus);
+    
+    app.get("/status/:statusId", showStatus);
+    
+    return app;
+}
 
-app.get("/status/:statusId", showStatus);
-
-app.listen(port, () => console.log(`Status page listening on port ${port}!`))
+if (!module.parent) {
+    const app = main(express());
+    app.listen(port, () => console.log(`Status page listening on port ${port}!`));
+} else {
+    module.exports = main;
+}

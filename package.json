@@ -15,9 +15,19 @@
     "telegraf": "^3.34.1",
     "telegraf-inline-menu": "^4.0.0"
   },
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "svelte": "^3.12.1",
+    "svelte-loader": "^2.13.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
   "scripts": {
     "start": "node index.js",
     "migrate": "knex migrate:latest",
-    "rollback": "knex migrate:rollback"
+    "rollback": "knex migrate:rollback",
+    "dev": "ORBS_NODE_ADDRESS=http://localhost:8080 ORBS_VCHAIN=42 ORBS_PRISM_URL=http://localhost:3000 ORBS_IDENTITY=Identity webpack-dev-server --port 8000"
   }
 }
