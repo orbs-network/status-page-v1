@@ -1,5 +1,5 @@
 const db = require("knex")(require("./knexfile")[process.env.NODE_ENV || "development"]);
-const { get, reduce, map, intersection, reject, isEmpty } = require("lodash");
+const { get, reduce, map, intersection, reject, isEmpty, find } = require("lodash");
 
 async function migrate() {
     return db.migrate.latest();
@@ -47,7 +47,7 @@ async function getLastBatch() {
     return (await db("status").max("batch"))[0].max || 0;
 }
 
-async function getStatus(lastBatch) {
+async function getStatus(lastBatch, hosts) {
     const rows = await db("status").where({ batch: lastBatch - 1 }).orderBy("validator", "asc");
 
     return reduce(rows, (status, row) => {

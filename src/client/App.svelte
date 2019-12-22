@@ -1,15 +1,43 @@
 <script>
-import { size, isEmpty } from "lodash";
+import { size, isEmpty, keys, get, find } from "lodash";
 import Info from "./Info.svelte";
 
-export let vchains;
-export let validators;
+let vchains = [];
+let status = {};
+let descriptions = {};
+let hosts = {};
 
-const getDescription = (vcid) => "";
+const getDescription = (vcid) => descriptions[vcid] || "";
 
 const getData = (validator, vcid) => {
-    return { blockHeight: 999999, version: "v1.3.6", status: "green" }
+    try {
+        return status[validator][vcid] || { };
+    } catch (e) {
+        return {};
+    }
 };
+
+const getHost = (validator) => {
+    return get(find(hosts, { name: validator }), "host");
+};
+
+const update = async () => {
+    try {
+        const response = await fetch("/status.json");        
+        const updatedStatus = await response.json();
+        if (!isEmpty(keys(updatedStatus.status))) {
+            vchains = updatedStatus.vchains;
+            status = updatedStatus.status;
+            descriptions = updatedStatus.descriptions;
+            hosts = updatedStatus.hosts;
+        }
+    } catch (e) {
+        console.log("Failed to fetch data", e);
+    }
+}
+
+update();
+setInterval(update, 5000);
 </script>
 
 <div class="centeredDiv" style="width: {(size(vchains) + 1) * 150}px;">
@@ -30,11 +58,11 @@ const getData = (validator, vcid) => {
             {/each}
         </tr>
     
-        {#each validators as validator}
+        {#each keys(status) as validator}
         <tr>
             <td class="node-name">{validator}</td>
             {#each vchains as vcid}
-                <Info data={getData(validator, vcid)} vcid={vcid} host="test" />
+                <Info data={getData(validator, vcid)} vcid={vcid} host={getHost(validator)} />
             {/each}
         </tr>
         {/each}

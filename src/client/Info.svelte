@@ -12,7 +12,7 @@ const githubLink = `https://github.com/orbs-network/orbs-network-go/commit/${sho
 const metricsLink = `http://${host}/vchains/${vcid}/metrics`;
 </script>
 
-<td class="{status}">
+<td class="{status || 'yellow'}">
 {#if isEmpty(data)}
     <a href="{metricsLink}" title="{data.created_at}" target="_blank">no data</a>
 {:else}
