@@ -37,7 +37,7 @@ const update = async () => {
 }
 
 update();
-setInterval(update, 5000);
+// setInterval(update, 5000);
 </script>
 
 <div class="centeredDiv" style="width: {(size(vchains) + 1) * 150}px;">
