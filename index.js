@@ -1,7 +1,5 @@
-const express = require("express")
-const app = express()
+const express = require("express");
 const port = process.env.PORT || 3000;
-const fs = require("fs");
 const _ = require("lodash");
 const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
 
@@ -12,7 +10,7 @@ const recordsRetention = Number(process.env.RETENTION || 60);
 
 const db = require("./db");
 
-function query() {
+function collectMetrics() {
     _.map(ips, async ({ name, host }) => {
         const batch = await db.getLastBatch();
 
@@ -31,38 +29,41 @@ function cleanup() {
     db.removeOldRecords(recordsRetention);
 }
 
-setInterval(query, 60000);
-db.migrate().then(query);
-
-setInterval(cleanup, 60000);
-
-require("./telegram"); // start telegram bot
-
-app.use(express.static("public"));
-
 async function showStatus(req, res) {
     const statusId = Number(req.params.statusId);
     const lastBatch = await db.getLastBatch();
     const batch = statusId || lastBatch;
-    const template = _.template(fs.readFileSync("./templates/index.html").toString());
-    const state = await db.getStatus(batch);
+    const status = await db.getStatus(batch, ips);
 
-    const before = batch - 1;
-    const after = batch == lastBatch ? undefined : batch + 1;
-
-    res.send(template({
-        state,
+    res.send({
+        batch,
+        lastBatch,
         vchains,
+        status,
         descriptions,
-        ips,
-        getEndpoint,
-        before,
-        after,
-    }));
+        hosts: ips,
+    });
 }
 
-app.get("/", showStatus);
+function main(app) {
+    setInterval(collectMetrics, 60000);
+    db.migrate().then(collectMetrics);
+    
+    setInterval(cleanup, 60000);
+    
+    require("./telegram"); // start telegram bot
+    
+    app.use(express.static("public"));
+    
+    app.get("/status/:statusId.json", showStatus);
+    app.get("/status.json", showStatus);
+    
+    return app;
+}
 
-app.get("/status/:statusId", showStatus);
-
-app.listen(port, () => console.log(`Status page listening on port ${port}!`))
+if (!module.parent) {
+    const app = main(express());
+    app.listen(port, () => console.log(`Status page listening on port ${port}!`));
+} else {
+    module.exports = main;
+}
