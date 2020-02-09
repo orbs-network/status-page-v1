@@ -1,5 +1,7 @@
+require('dotenv').config();
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const buildProxy = require('./proxy');
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -51,7 +53,8 @@ module.exports = {
   devtool: prod ? false : 'source-map',
   devServer: {
     before: (app, server) => {
-      require("./index")(app);
+      const proxyApp = buildProxy(app);
+      require("./index")(proxyApp);
     }
   }
 };

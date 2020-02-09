@@ -5,6 +5,7 @@ const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metric
 
 const vchains = process.env.VCHAINS.split(",");
 const descriptions = JSON.parse(process.env.VCHAIN_DESCRIPTIONS || `{}`);
+const prismUrls = JSON.parse(process.env.PRISM_URLS || `{}`);
 const ips = JSON.parse(process.env.IPS || `{"nodes":[]}`).nodes;
 const recordsRetention = Number(process.env.RETENTION || 60);
 
@@ -41,6 +42,7 @@ async function showStatus(req, res) {
         vchains,
         status,
         descriptions,
+        prisms: prismUrls,
         hosts: ips,
     });
 }

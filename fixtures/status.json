@@ -1,0 +1,1127 @@
+{
+    "batch": 100526,
+    "lastBatch": 100526,
+    "vchains": [
+        "1100000",
+        "1000001",
+        "1960000",
+        "1970000",
+        "5110"
+    ],
+    "status": {
+        "80trill-orbs-prod": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:17.526Z",
+                "validator": "80trill-orbs-prod",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.558Z",
+                "validator": "80trill-orbs-prod",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.539Z",
+                "validator": "80trill-orbs-prod",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:17.571Z",
+                "validator": "80trill-orbs-prod",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:05.523Z",
+                "validator": "80trill-orbs-prod",
+                "vchain": 1970000,
+                "blockHeight": "513693",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "bitgosu": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.667Z",
+                "validator": "bitgosu",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:29.665Z",
+                "validator": "bitgosu",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.641Z",
+                "validator": "bitgosu",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:20.618Z",
+                "validator": "bitgosu",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:08.616Z",
+                "validator": "bitgosu",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "chainvalid8-orbs-prod": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:18.115Z",
+                "validator": "chainvalid8-orbs-prod",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:22.120Z",
+                "validator": "chainvalid8-orbs-prod",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.133Z",
+                "validator": "chainvalid8-orbs-prod",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:18.084Z",
+                "validator": "chainvalid8-orbs-prod",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:03.120Z",
+                "validator": "chainvalid8-orbs-prod",
+                "vchain": 1970000,
+                "blockHeight": "513692",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "Dappsters Validator": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:18.128Z",
+                "validator": "Dappsters Validator",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:14.136Z",
+                "validator": "Dappsters Validator",
+                "vchain": 1000001,
+                "blockHeight": "2617477",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.118Z",
+                "validator": "Dappsters Validator",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:18.125Z",
+                "validator": "Dappsters Validator",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:03.131Z",
+                "validator": "Dappsters Validator",
+                "vchain": 1970000,
+                "blockHeight": "513692",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "DE-LIGHT": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:42.788Z",
+                "validator": "DE-LIGHT",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.774Z",
+                "validator": "DE-LIGHT",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.795Z",
+                "validator": "DE-LIGHT",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:22.806Z",
+                "validator": "DE-LIGHT",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:08.030Z",
+                "validator": "DE-LIGHT",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "Fair Square Lab": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:18.082Z",
+                "validator": "Fair Square Lab",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:22.114Z",
+                "validator": "Fair Square Lab",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.106Z",
+                "validator": "Fair Square Lab",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:18.120Z",
+                "validator": "Fair Square Lab",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:06.094Z",
+                "validator": "Fair Square Lab",
+                "vchain": 1970000,
+                "blockHeight": "513693",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "japan-guardian-altive-orbs-prob": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.520Z",
+                "validator": "japan-guardian-altive-orbs-prob",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:28.556Z",
+                "validator": "japan-guardian-altive-orbs-prob",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.422Z",
+                "validator": "japan-guardian-altive-orbs-prob",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.540Z",
+                "validator": "japan-guardian-altive-orbs-prob",
+                "vchain": 1960000,
+                "blockHeight": "1311213",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:08.445Z",
+                "validator": "japan-guardian-altive-orbs-prob",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "orbs-core-audit": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.100Z",
+                "validator": "orbs-core-audit",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:16.090Z",
+                "validator": "orbs-core-audit",
+                "vchain": 1000001,
+                "blockHeight": "2617477",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.086Z",
+                "validator": "orbs-core-audit",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:14.091Z",
+                "validator": "orbs-core-audit",
+                "vchain": 1960000,
+                "blockHeight": "1311211",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:02.067Z",
+                "validator": "orbs-core-audit",
+                "vchain": 1970000,
+                "blockHeight": "513691",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "Orbs Guardians": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:26.653Z",
+                "validator": "Orbs Guardians",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:28.635Z",
+                "validator": "Orbs Guardians",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.629Z",
+                "validator": "Orbs Guardians",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.643Z",
+                "validator": "Orbs Guardians",
+                "vchain": 1960000,
+                "blockHeight": "1311213",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:07.679Z",
+                "validator": "Orbs Guardians",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "orbs-node": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:42.036Z",
+                "validator": "orbs-node",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:19.031Z",
+                "validator": "orbs-node",
+                "vchain": 1000001,
+                "blockHeight": "2617477",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:20.034Z",
+                "validator": "orbs-node",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:25.040Z",
+                "validator": "orbs-node",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:06.996Z",
+                "validator": "orbs-node",
+                "vchain": 1970000,
+                "blockHeight": "513693",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "paradigm-fund-orbs-prod": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:26.600Z",
+                "validator": "paradigm-fund-orbs-prod",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.610Z",
+                "validator": "paradigm-fund-orbs-prod",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.597Z",
+                "validator": "paradigm-fund-orbs-prod",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.578Z",
+                "validator": "paradigm-fund-orbs-prod",
+                "vchain": 1960000,
+                "blockHeight": "1311213",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:07.592Z",
+                "validator": "paradigm-fund-orbs-prod",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "pulse-lab-orbs-prod": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:26.627Z",
+                "validator": "pulse-lab-orbs-prod",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.616Z",
+                "validator": "pulse-lab-orbs-prod",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.555Z",
+                "validator": "pulse-lab-orbs-prod",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.642Z",
+                "validator": "pulse-lab-orbs-prod",
+                "vchain": 1960000,
+                "blockHeight": "1311213",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:08.240Z",
+                "validator": "pulse-lab-orbs-prod",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "staked": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:35.754Z",
+                "validator": "staked",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:25.766Z",
+                "validator": "staked",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.706Z",
+                "validator": "staked",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.747Z",
+                "validator": "staked",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:07.743Z",
+                "validator": "staked",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "Stratx Consulting Inc": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.416Z",
+                "validator": "Stratx Consulting Inc",
+                "vchain": 5110,
+                "blockHeight": "2138649",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:22.413Z",
+                "validator": "Stratx Consulting Inc",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.442Z",
+                "validator": "Stratx Consulting Inc",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:27.641Z",
+                "validator": "Stratx Consulting Inc",
+                "vchain": 1960000,
+                "blockHeight": "1311213",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:07.419Z",
+                "validator": "Stratx Consulting Inc",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "tenta-orbs-prod": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:17.514Z",
+                "validator": "tenta-orbs-prod",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:22.530Z",
+                "validator": "tenta-orbs-prod",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.536Z",
+                "validator": "tenta-orbs-prod",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:18.521Z",
+                "validator": "tenta-orbs-prod",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:05.510Z",
+                "validator": "tenta-orbs-prod",
+                "vchain": 1970000,
+                "blockHeight": "513693",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "Validators-of-Orbs": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:17.892Z",
+                "validator": "Validators-of-Orbs",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.875Z",
+                "validator": "Validators-of-Orbs",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:14.879Z",
+                "validator": "Validators-of-Orbs",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:17.901Z",
+                "validator": "Validators-of-Orbs",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:02.907Z",
+                "validator": "Validators-of-Orbs",
+                "vchain": 1970000,
+                "blockHeight": "513692",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "Whale Core Stake - ORBS": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:31.490Z",
+                "validator": "Whale Core Stake - ORBS",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:25.486Z",
+                "validator": "Whale Core Stake - ORBS",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.455Z",
+                "validator": "Whale Core Stake - ORBS",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:24.518Z",
+                "validator": "Whale Core Stake - ORBS",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:08.456Z",
+                "validator": "Whale Core Stake - ORBS",
+                "vchain": 1970000,
+                "blockHeight": "513694",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        },
+        "Wings Stiftung": {
+            "5110": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:17.814Z",
+                "validator": "Wings Stiftung",
+                "vchain": 5110,
+                "blockHeight": "2138648",
+                "status": "green",
+                "version": "v1.3.9",
+                "commit": "0ee733d9f6e1666581e90fe6d4c2d522a71a4d10",
+                "ethereumSyncStatus": "success"
+            },
+            "1000001": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:21.874Z",
+                "validator": "Wings Stiftung",
+                "vchain": 1000001,
+                "blockHeight": "2617478",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1100000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:15.834Z",
+                "validator": "Wings Stiftung",
+                "vchain": 1100000,
+                "blockHeight": "3268801",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            },
+            "1960000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:17.869Z",
+                "validator": "Wings Stiftung",
+                "vchain": 1960000,
+                "blockHeight": "1311212",
+                "status": "green",
+                "version": "v1.3.8",
+                "commit": "8f2e535cc79b5dc752a55d8d7cb05164d3b987e1",
+                "ethereumSyncStatus": "success"
+            },
+            "1970000": {
+                "batch": 100525,
+                "created_at": "2020-02-09T09:12:02.883Z",
+                "validator": "Wings Stiftung",
+                "vchain": 1970000,
+                "blockHeight": "513692",
+                "status": "green",
+                "version": "v1.3.6",
+                "commit": "16582f68330f2a0ed36286b6df9ba4cb7886bd26",
+                "ethereumSyncStatus": "success"
+            }
+        }
+    },
+    "descriptions": {
+        "5110": "Staging",
+        "1000001": "Testing",
+        "1100000": "Elections",
+        "1960000": "Open rights",
+        "1970000": "Notarization"
+    },
+    "prisms": {
+        "5110": "http://staging.com",
+        "1000001": "",
+        "1100000": "http://elections.com",
+        "1960000": "http://open-rights.com",
+        "1970000": "http://notarization.com"
+    },
+    "hosts": [
+        {
+            "name": "orbs-core-audit",
+            "host": "3.134.6.50"
+        },
+        {
+            "name": "Validators-of-Orbs",
+            "host": "3.210.140.137"
+        },
+        {
+            "name": "chainvalid8-orbs-prod",
+            "host": "52.2.41.108"
+        },
+        {
+            "name": "80trill-orbs-prod",
+            "host": "34.210.190.236"
+        },
+        {
+            "name": "Wings Stiftung",
+            "host": "46.101.244.118"
+        },
+        {
+            "name": "Fair Square Lab",
+            "host": "13.125.82.8"
+        },
+        {
+            "name": "pulse-lab-orbs-prod",
+            "host": "3.17.198.12"
+        },
+        {
+            "name": "tenta-orbs-prod",
+            "host": "64.59.88.8"
+        },
+        {
+            "name": "paradigm-fund-orbs-prod",
+            "host": "35.183.225.241"
+        },
+        {
+            "name": "Dappsters Validator",
+            "host": "3.210.161.251"
+        },
+        {
+            "name": "orbs-node",
+            "host": "18.197.127.2"
+        },
+        {
+            "name": "Stratx Consulting Inc",
+            "host": "35.183.240.87"
+        },
+        {
+            "name": "japan-guardian-altive-orbs-prob",
+            "host": "13.230.247.180"
+        },
+        {
+            "name": "Orbs Guardians",
+            "host": "54.163.157.129"
+        },
+        {
+            "name": "bitgosu",
+            "host": "13.209.158.127"
+        },
+        {
+            "name": "DE-LIGHT",
+            "host": "52.78.190.239"
+        },
+        {
+            "name": "staked",
+            "host": "35.174.59.242"
+        },
+        {
+            "name": "Whale Core Stake - ORBS",
+            "host": "18.140.206.92"
+        }
+    ]
+}
