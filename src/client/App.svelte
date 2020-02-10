@@ -1,6 +1,23 @@
+<style>
+  .glass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
 <script>
   import { size, isEmpty, keys, get, find } from "lodash";
+  import { onMount } from "svelte";
   import Info from "./Info.svelte";
+  import Spinner from "./Spinner.svelte";
+
+  let isFetched = false;
 
   let vchains = [];
   let status = {};
@@ -19,11 +36,9 @@
     }
   };
 
-  const getHost = validator => {
-    return get(find(hosts, { name: validator }), "host");
-  };
+  const getHost = validator => get(find(hosts, { name: validator }), "host");
 
-  const update = async () => {
+  const fetchData = async () => {
     try {
       const response = await fetch("/status.json");
       const updatedStatus = await response.json();
@@ -34,22 +49,28 @@
         hosts = updatedStatus.hosts;
         prisms = updatedStatus.prisms;
       }
+      isFetched = true;
     } catch (e) {
       console.log("Failed to fetch data", e);
     }
   };
 
-  update();
-  // setInterval(update, 5000);
+  onMount(fetchData);
 </script>
 
-<div class="centeredDiv" style="width: {(size(vchains) + 1) * 150}px;">
+<div>
   <div class="header">
     <a href="/">
       <img alt="orbs-logo" src="/0RBS-white-version.png" />
     </a>
     <h1>Network Status</h1>
   </div>
+
+  {#if !isFetched}
+    <div class="glass">
+      <Spinner />
+    </div>
+  {/if}
 
   <table>
     <tr class="thead">

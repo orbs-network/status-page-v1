@@ -4,6 +4,7 @@
     <title>Status page</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <style>
+        html, body { margin: 0; padding: 0; }
         body {
             font-family: "montserrat", "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
             background-color: #06142e;
@@ -39,34 +40,30 @@
         .yellow {
             background-color: gold;
         }
-
-        html, body { margin: 0; padding: 0; }
         
-        .centeredDiv { 
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        .centeredDiv table {
-            width: 100%;
+        table {
+            margin: auto;
         }
 
         .node-name {
             font-size: 13px;
         }
 
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
         .header img {
             max-height: 70px;
-            padding: 10px;
-            padding-left: 20px;
-            vertical-align: middle;
-            float: left;
+            margin-right: 100px;
         }
 
         .header h1 {
-            font-size: 60px;
+            font-size: 4em;
             font-weight: 300;
-            line-height: 60px;
             text-align: center;
         }
 

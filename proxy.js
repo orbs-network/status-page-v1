@@ -2,7 +2,9 @@ const status = require('./fixtures/status.json');
 
 module.exports = function (app) {
     app.get('/status.json', (req, res) => {
-        res.send(200, status);
+        setTimeout(() => {
+            res.send(200, status);
+        }, 3000);
     });
     return app;
 };
