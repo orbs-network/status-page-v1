@@ -1,5 +1,5 @@
 require('dotenv').config();
-const webpack = require('webpack');
+const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const buildProxy = require('./proxy');
 
@@ -11,18 +11,21 @@ module.exports = {
     bundle: ['./src/client/main.js']
   },
   resolve: {
-    extensions: ['.mjs', '.js', '.svelte']
-  },
-  output: {
-    path: __dirname + '/public',
-    filename: '[name].js',
-    chunkFilename: '[name].[id].js'
-  },
+		alias: {
+			svelte: path.resolve('node_modules', 'svelte')
+		},
+		extensions: ['.mjs', '.js', '.svelte'],
+		mainFields: ['svelte', 'browser', 'module', 'main']
+	},
+	output: {
+		path: __dirname + '/public',
+		filename: '[name].js',
+		chunkFilename: '[name].[id].js'
+	},
   module: {
     rules: [
       {
         test: /\.svelte$/,
-        exclude: /node_modules/,
         use: {
           loader: 'svelte-loader',
           options: {
@@ -46,8 +49,8 @@ module.exports = {
   },
   mode,
   plugins: [
-    new webpack.EnvironmentPlugin({
-      
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
     })
   ],
   devtool: prod ? false : 'source-map',

@@ -1,16 +1,3 @@
-<style>
-  .glass {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
 <script>
   import { size, isEmpty, keys, get, find } from "lodash";
   import { onMount } from "svelte";
@@ -57,6 +44,20 @@
 
   onMount(fetchData);
 </script>
+
+<style>
+  .glass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
 
 <div>
   <div class="header">
