@@ -1,0 +1,8 @@
+{
+    "ok": true,
+    "blockNumber": 9604991,
+    "latestBlockTimestamp": 1583328850,
+    "currentMachineTimestamp": 1583328923,
+    "timeDriftInSeconds": 73,
+    "message": "Ethereum is now fully synced with the mainnet!"
+}

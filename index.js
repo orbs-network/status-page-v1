@@ -2,6 +2,7 @@ const express = require("express");
 const port = process.env.PORT || 3000;
 const _ = require("lodash");
 const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
+const { getElectionsStatus } = require('./elections');
 
 const vchains = process.env.VCHAINS.split(",");
 const descriptions = JSON.parse(process.env.VCHAIN_DESCRIPTIONS || `{}`);
@@ -50,16 +51,20 @@ async function showStatus(req, res) {
 function main(app) {
     setInterval(collectMetrics, 60000);
     db.migrate().then(collectMetrics);
-    
+
     setInterval(cleanup, 60000);
-    
+
     require("./telegram"); // start telegram bot
-    
+
     app.use(express.static("public"));
-    
+
     app.get("/status/:statusId.json", showStatus);
     app.get("/status.json", showStatus);
-    
+    app.get("/elections.json", async (_, res) => {
+        const result = await getElectionsStatus();
+        res.json(result);
+    });
+
     return app;
 }
 
