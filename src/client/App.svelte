@@ -2,6 +2,7 @@
   import { size, isEmpty, keys, get, find } from "lodash";
   import { onMount } from "svelte";
   import Info from "./Info.svelte";
+  import Elections from "./Elections.svelte";
   import Spinner from "./Spinner.svelte";
 
   let isFetched = false;
@@ -73,6 +74,8 @@
     </div>
   {/if}
 
+  <Elections />
+
   <table>
     <tr class="thead">
       <td>
@@ -84,12 +87,11 @@
           <br />
           {#if getPrismUrl(vcid) == ''}
             <span class="description">{getDescription(vcid)}</span>
-            {:else}
+          {:else}
             <a href={getPrismUrl(vcid)} target="_blank">
-                <span class="description">{getDescription(vcid)}</span>
+              <span class="description">{getDescription(vcid)}</span>
             </a>
           {/if}
-
         </td>
       {/each}
     </tr>

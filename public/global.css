@@ -15,6 +15,7 @@ a:hover {
 }
 
 td {
+    white-space: nowrap;
     padding: 10px;
     width: 150px;
 }
@@ -48,6 +49,19 @@ table {
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.spacer {
+    height: 15px;
+    clear:both;
+}
+
+.elections-table {
+    font-size:13px;
+}
+
+.elections-status-caption {
+    text-align:right;
 }
 
 .header img {
