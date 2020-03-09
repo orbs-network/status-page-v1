@@ -45,12 +45,13 @@
     }
 
     ethereumBlockPerOrbs = elections.ethereumBlockNumberPerOrbs;
+
     nextElectionsBlock = elections.next;
     if (elections.inProgress) {
       electionStatusDisplay = "Processing";
     }
 
-    if (blockDecimalNumber - ethereumBlockPerOrbs > 100) {
+    if (Math.abs(blockDecimalNumber - ethereumBlockPerOrbs) > 200) {
       statuses.eth = "red";
     }
 
@@ -71,7 +72,7 @@
   <tr>
     <td class="node-name" style="width: 210px">&nbsp;</td>
     <td class="elections-status-caption">Ethereum Status</td>
-    <td class={statuses.eth} title={ethereumBlockPerOrbs}>
+    <td class={statuses.eth} alt={ethereumBlockPerOrbs}>
       {blockDecimalNumber || 'N/A'}
       <br />
       {ethLatestBlockTime || 'N/A'}
