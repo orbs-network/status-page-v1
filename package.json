@@ -6,7 +6,7 @@
   "author": "Kirill Maksimov <kirill@orbs.com>",
   "license": "MIT",
   "dependencies": {
-    "@orbs-network/orbs-nebula": "1.5.0",
+    "@orbs-network/orbs-nebula": "^1.6.1",
     "express": "^4.16.4",
     "knex": "^0.20.3",
     "lodash": "^4.17.15",

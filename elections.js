@@ -14,6 +14,14 @@ async function getElectionsStatus() {
     const queryProcessingStarted = await client.createQuery(orbsVotingContractName, "hasProcessingStarted", []);
     const responseProcessingStarted = await client.sendQuery(queryProcessingStarted);
 
+    const _isProcessingPeriod = await client.createQuery(orbsVotingContractName, "isProcessingPeriod", []);
+    const responseIsProcessingPeriod = await client.sendQuery(_isProcessingPeriod);
+
+    const getCurrentEthereumBlockNumberQuery = await client.createQuery(orbsVotingContractName, "getCurrentEthereumBlockNumber", []);
+    const responsegetCurrentEthereumBlockNumber = await client.sendQuery(getCurrentEthereumBlockNumberQuery);
+
+    const ethereumBlockNumberPerOrbs = Number(responsegetCurrentEthereumBlockNumber.outputArguments[0].value);
+    const isProcessingPeriod = Number(responseIsProcessingPeriod.outputArguments[0].value);
     const inProgress = !(Number(responseProcessingStarted.outputArguments[0].value) === 0);
 
     const ethResp = await fetch('http://eth4.orbs.com:8080');
@@ -22,11 +30,17 @@ async function getElectionsStatus() {
     return {
         eth,
         elections: {
+            ethereumBlockNumberPerOrbs,
+            isProcessingPeriod,
             next: Number(responseElectionBlock.outputArguments[0].value),
             inProgress,
         }
     };
 }
+
+(async () => {
+    console.log(await getElectionsStatus());
+})();
 
 module.exports = {
     getElectionsStatus,

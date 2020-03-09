@@ -7,6 +7,7 @@
   let blockDecimalNumber;
   let ethLatestBlockTime;
   let nextElectionsBlock;
+  let ethereumBlockPerOrbs;
   let electionStatusDisplay = "Not started";
 
   const statuses = {
@@ -43,12 +44,17 @@
       statuses.eth = "red";
     }
 
+    ethereumBlockPerOrbs = elections.ethereumBlockNumberPerOrbs;
     nextElectionsBlock = elections.next;
     if (elections.inProgress) {
       electionStatusDisplay = "Processing";
     }
 
-    if (blockDecimalNumber > nextElectionsBlock && !elections.inProgress) {
+    if (blockDecimalNumber - ethereumBlockPerOrbs > 100) {
+      statuses.eth = "red";
+    }
+
+    if (elections.isProcessingPeriod > 0 && !elections.inProgress) {
       statuses.elections = "red";
     }
 
@@ -65,7 +71,7 @@
   <tr>
     <td class="node-name" style="width: 210px">&nbsp;</td>
     <td class="elections-status-caption">Ethereum Status</td>
-    <td class={statuses.eth}>
+    <td class={statuses.eth} title={ethereumBlockPerOrbs}>
       {blockDecimalNumber || 'N/A'}
       <br />
       {ethLatestBlockTime || 'N/A'}
