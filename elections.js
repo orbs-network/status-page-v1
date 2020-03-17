@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const sender = Orbs.createAccount();
 
 const virtualChainId = 1100000;
-const client = new Orbs.Client("http://3.134.6.50/vchains/1100000", virtualChainId, "MAIN_NET", new Orbs.LocalSigner(sender));
+const client = new Orbs.Client("http://18.197.127.2/vchains/1100000", virtualChainId, "MAIN_NET", new Orbs.LocalSigner(sender));
 
 const orbsVotingContractName = "_Elections";
 
