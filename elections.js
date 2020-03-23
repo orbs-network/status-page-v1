@@ -40,7 +40,7 @@ async function getServerElections() {
             }
         };
     } catch (err) {
-        console.error(`There has been a problem getting the latest elections status due to an error: ${JSON.stringify(err)}`);
+        console.error(`getServerElections failed: ${JSON.stringify(err)}`);
         return {
             ok: false,
             err,
@@ -49,17 +49,32 @@ async function getServerElections() {
 }
 
 const poller = async () => {
-    let result = await getServerElections();
-    if (result.ok) {
-        currentElectionsData = Object.assign({}, result);
+    console.log('starting polling round..', 'last known data', currentElectionsData);
+    try {
+        let result = await getServerElections();
+        if (result.ok) {
+            currentElectionsData = Object.assign({}, result, { sampleTs: Math.floor(Date.now() / 1000) });
+        }
+    } catch (err) {
+        console.log('Poller round failed', err);
     }
+
+    // Schedule another polling round
+    pid = setTimeout(poller, 10 * 1000);
 };
 
-let pid = setInterval(poller, 10 * 1000);
-poller();
+let pid;
+
+// Setup managed polling
+(function () {
+    try {
+        poller();
+    } catch (err) {
+        console.log('Elections poller failed to init on first load!', err);
+    }
+})();
 
 function getElectionsStatus() {
-    console.log('getElectionsStatus()');
     if (!currentElectionsData) {
         return {
             ok: false,
