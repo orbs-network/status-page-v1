@@ -8,22 +8,29 @@ const client = new Orbs.Client("http://3.134.6.50/vchains/1100000", virtualChain
 const orbsVotingContractName = "_Elections";
 let currentElectionsData;
 
+function nowTime() {
+    return Math.floor(Date.now() / 1000);
+}
+
 const initElectionsDataPromise = new Promise((res, rej) => {
+    const timerStartTs = nowTime();
     let initPid = setInterval(() => {
-        if (currentElectionsData && currentElectionsData.ok) {
+        if (currentElectionsData != undefined) { // undefined and null
             clearInterval(initPid);
             res(currentElectionsData);
         }
-    }, 50);
 
-    // Protection in case, we get no answer in 5 seconds
-    setTimeout(() => {
-        clearInterval(initPid);
-        rej({
-            ok: false,
-            message: 'elections data fetching failed!'
-        });
-    }, 5 * 1000);
+        const nowTs = nowTime();
+        if (nowTs - timerStartTs > 25) {
+            clearInterval(initPid);
+            const message = 'elections status unknown at startup, check logs';
+            console.error(message);
+            res({
+                ok: false,
+                message,
+            });
+        }
+    }, 50);
 });
 
 async function getServerElections() {
@@ -44,7 +51,7 @@ async function getServerElections() {
         const isProcessingPeriod = Number(responseIsProcessingPeriod.outputArguments[0].value);
         const inProgress = !(Number(responseProcessingStarted.outputArguments[0].value) === 0);
 
-        const ethResp = await fetch('http://eth4.orbs.com:8080');
+        const ethResp = await fetch('http://eth.orbs.com:8080');
         const eth = await ethResp.json();
 
         return {
@@ -66,11 +73,11 @@ async function getServerElections() {
     }
 }
 
-const poller = async () => {    
+const poller = async () => {
     try {
         let result = await getServerElections();
         if (result.ok) {
-            currentElectionsData = Object.assign({}, result, { sampleTs: Math.floor(Date.now() / 1000) });
+            currentElectionsData = Object.assign({}, result, { sampleTs: nowTime() });
         }
     } catch (err) {
         console.log('Poller round failed', err);

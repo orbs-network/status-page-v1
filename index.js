@@ -61,7 +61,7 @@ function main(app) {
     app.get("/status/:statusId.json", showStatus);
     app.get("/status.json", showStatus);
     app.get("/elections.json", async (_, res) => {
-        const result = getElectionsStatus();
+        const result = await getElectionsStatus(); // Never rejected
 
         // Check if we have no results to signal an HTTP Error 500
         if (!result.ok) {
