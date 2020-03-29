@@ -1,6 +1,6 @@
 {
   "name": "status-page",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "main": "index.js",
   "repository": "git@github.com:orbs-network/status-page.git",
   "author": "Kirill Maksimov <kirill@orbs.com>",

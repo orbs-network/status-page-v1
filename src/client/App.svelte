@@ -11,7 +11,7 @@
   let status = {};
   let descriptions = {};
   let hosts = {};
-  let prisms = {};
+  let prisms = {};  
 
   const getDescription = vcid => descriptions[vcid] || "";
   const getPrismUrl = vcid => prisms[vcid] || "";
@@ -30,6 +30,7 @@
     try {
       const response = await fetch("/status.json");
       const updatedStatus = await response.json();
+
       if (!isEmpty(keys(updatedStatus.status))) {
         vchains = updatedStatus.vchains;
         status = updatedStatus.status;
@@ -57,7 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  }    
 </style>
 
 <div>

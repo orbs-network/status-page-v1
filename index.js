@@ -3,6 +3,7 @@ const port = process.env.PORT || 3000;
 const _ = require("lodash");
 const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
 const { getElectionsStatus } = require('./elections');
+const { version } = require('./package.json');
 
 const vchains = process.env.VCHAINS.split(",");
 const descriptions = JSON.parse(process.env.VCHAIN_DESCRIPTIONS || `{}`);
@@ -38,6 +39,7 @@ async function showStatus(req, res) {
     const status = await db.getStatus(batch, ips);
 
     res.send({
+        version,
         batch,
         lastBatch,
         vchains,
