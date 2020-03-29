@@ -18,10 +18,7 @@ const initElectionsDataPromise = new Promise((res, rej) => {
         if (currentElectionsData != undefined) { // undefined and null
             clearInterval(initPid);
             res(currentElectionsData);
-        }
-
-        const nowTs = nowTime();
-        if (nowTs - timerStartTs > 25) {
+        } else if (nowTime() - timerStartTs > 25) {
             clearInterval(initPid);
             const message = 'elections status unknown at startup, check logs';
             console.error(message);
@@ -30,7 +27,7 @@ const initElectionsDataPromise = new Promise((res, rej) => {
                 message,
             });
         }
-    }, 50);
+    }, 100);
 });
 
 async function getServerElections() {
