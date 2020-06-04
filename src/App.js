@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+  import './App.css';
 import Dashboard from './Dashboard';
 
 import FakeData from './FakeData';
@@ -44,14 +43,18 @@ for (let i = 0; i < 18; i ++) {
   });
 }
 
+const vchains = ['1000000', '1000001', '1000002', '1000003', '1000004'];
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Network Status
+        <div class="logo-container">
+          <img src="./logo.png" class="logo" alt="Orbs" /> Network Status
+        </div>
       </header>
       <main>
-      <Dashboard data={data} />
+      <Dashboard data={data} vchains={vchains} />
       </main>
     </div>
   );

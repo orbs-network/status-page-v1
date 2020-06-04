@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import { Table, TableBody, TableCell } from '@material-ui/core';
+import CheckCircleOutlined from '@material-ui/icons/CheckCircleOutlined';
 import { map } from 'lodash';
+import moment from "moment";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,55 +22,74 @@ export default class Dashboard extends React.Component {
         super(props);
     }
 
-    FormRow() {
-        return (
-            <React.Fragment>
-                <Grid item xs={4}>
-                    <Paper >item</Paper>
-                </Grid>
-                <Grid item xs={4}>
-                    <Paper>item</Paper>
-                </Grid>
-                <Grid item xs={4}>
-                    <Paper>item</Paper>
-                </Grid>
-            </React.Fragment>
-        );
-    }
-
     render() {
-        const rows = this.props.data.map(({ validator, management, vchains }, index) => {
-            // const vchains = map(management.CurrentVirtualChains, (value, key) => {
-            //     return (
-            //         <Card></Card>
-            //     )
-            // })
+        const width = 100/(this.props.vchains.length + 2);
 
+        const headers = map(this.props.vchains, (Vchain) => {
+            const style = {
+                width: `${width}%`,
+            }
+            return (
+                <td style={style}>{Vchain}</td>
+            )
+        });
+        console.log(this.props.data[0].management.CurrentVirtualChains)
+
+        const vchainDetails = map(this.props.data[0].management.CurrentVirtualChains, ({Expiration, RolloutGroup}, Vchain) => {
+            const style = {
+                width: `${width}%`,
+            }
+
+            const dateFormat = "MM-DD-YYYY";
+
+            return (
+                <td style={style}>{moment(Expiration).format(dateFormat)} {RolloutGroup}</td>
+            )
+        });
+
+        const rows = this.props.data.map(({ validator, management, vchains }, index) => {
             const vchainCards = map(vchains, ({ BlockHeight, Version, Commit }) => {
                 return (
-                    <Grid item xs={2}><Card>{BlockHeight}<br/>{Version}</Card></Grid>
+                    <td><Card>{BlockHeight}<br/>{Version}</Card></td>
                 )
             });
 
-            const xs = 2 + 2 * Object.keys(vchains).length;
+            const services = (
+                <td>
+                    <Card>
+                        <CheckCircleOutlined tooltip="Management Service" />
+                        <CheckCircleOutlined tooltip="Signer Service" />
+                    </Card>
+                </td>
+            );
 
-console.log(xs,)
             return (
-                <Grid container item xs={xs} spacing={0} key={validator.Name}>
-                    <Grid item xs={2}>
-                        <Card >{validator.Name}<br/>{validator.IP}</Card>
-                    </Grid>
+                <tr>
+                    <td>{validator.Name}<br/>{validator.IP}</td>
+                    {services}
                     {vchainCards}
-                </Grid>
+                </tr>
             )
         });
 
         return (
-            <div>
-                <Grid container spacing={1}>
-                    {rows}
-                </Grid>
-            </div>
+            <table style={{width: "100%"}}>
+            <thead style={{"font-weight": "bold"}}>
+                <tr>
+                    <td></td>
+                    <td>Node Services</td>
+                    {headers}                
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    {vchainDetails}
+                </tr>
+            </thead>
+            <tbody>
+                {rows}
+            </tbody>
+            </table>
         );
     }
 }

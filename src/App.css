@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 40px;
   color: white;
 }
 
@@ -35,4 +35,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.logo {
+  height: 40px;
+  margin: 5px;
+  float: left;
+  vertical-align: middle;
+}
+
+.logo-container {
+  vertical-align: middle;
+  vertical-align: middle;
 }
