@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Paper';
 import CheckCircleOutlined from '@material-ui/icons/CheckCircleOutlined';
+import AssignmentOutlined from '@material-ui/icons/AssignmentOutlined';
+import EquializerOutlined from '@material-ui/icons/EqualizerOutlined';
 import { map } from 'lodash';
 import moment from "moment";
 
@@ -33,7 +34,6 @@ export default class Dashboard extends React.Component {
                 <td style={style}>{Vchain}</td>
             )
         });
-        console.log(this.props.data[0].management.CurrentVirtualChains)
 
         const vchainDetails = map(this.props.data[0].management.CurrentVirtualChains, ({Expiration, RolloutGroup}, Vchain) => {
             const style = {
@@ -50,16 +50,22 @@ export default class Dashboard extends React.Component {
         const rows = this.props.data.map(({ validator, management, vchains }, index) => {
             const vchainCards = map(vchains, ({ BlockHeight, Version, Commit }) => {
                 return (
-                    <td><Card>{BlockHeight}<br/>{Version}</Card></td>
+                    <td className="green card">
+                        <div class="card-text">
+                            {BlockHeight}<br/>{Version}
+                        </div>
+                        <div class="card-icons">
+                            <EquializerOutlined />
+                            <AssignmentOutlined />
+                        </div>
+                    </td>
                 )
             });
 
             const services = (
-                <td>
-                    <Card>
-                        <CheckCircleOutlined tooltip="Management Service" />
-                        <CheckCircleOutlined tooltip="Signer Service" />
-                    </Card>
+                <td className="green card">
+                    <CheckCircleOutlined tooltip="Management Service" />
+                    <CheckCircleOutlined tooltip="Signer Service" />
                 </td>
             );
 

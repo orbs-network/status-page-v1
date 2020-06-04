@@ -48,3 +48,44 @@
   vertical-align: middle;
   vertical-align: middle;
 }
+
+.green {
+  background-color: #66bb6a;
+}
+
+.red {
+  background-color: #d32f2f;
+}
+
+.yellow {
+  background-color: gold;
+}
+
+.card {
+  color: white;
+  font-size: 13px;
+}
+
+.card-head {
+  font-size: 15px;
+}
+
+.card-icons {
+  float: right;
+  height: 100%;
+  vertical-align: middle;
+  height: 31px;
+  margin-top: 4px;
+  margin-bottom: 3px;
+}
+
+.card-text {
+  float: left;
+  height: 100%;
+  margin-left: 20px;
+  height: 31px;
+}
+
+body {
+  font-family: "montserrat", "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+}
