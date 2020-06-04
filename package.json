@@ -6,13 +6,20 @@
   "author": "Kirill Maksimov <kirill@orbs.com>",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.10.1",
     "@orbs-network/orbs-nebula": "^1.6.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "express": "^4.16.4",
     "knex": "^0.20.3",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
     "orbs-client-sdk": "^2.3.1",
     "pg": "^7.14.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
     "sqlite3": "^4.1.0",
     "telegraf": "^3.34.1",
     "telegraf-inline-menu": "^4.0.0"
@@ -24,15 +31,34 @@
     "style-loader": "^1.0.0",
     "svelte": "^3.12.1",
     "svelte-loader": "^2.13.6",
-    "webpack": "^4.41.2",
+    "webpack": "4.42.0",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "3.10.3"
   },
   "scripts": {
     "start": "node index.js",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "dev": "webpack-dev-server --port 8000",
-    "build": "webpack"
+    "build": "webpack",
+    "react:start": "react-scripts start",
+    "react:build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
