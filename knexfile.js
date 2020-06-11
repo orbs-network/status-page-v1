@@ -2,30 +2,18 @@
 
 module.exports = {
   development: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       database: 'status_page',
       user: 'username',
-      password: 'password'
+      password: 'password',
+      host: '127.0.0.1',
+      port: 5432,
     },
     pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      min: 0,
+      max: 100,
+      propagateCreateError: false
     },
     migrations: {
       tableName: 'knex_migrations'

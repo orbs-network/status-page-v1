@@ -1,6 +1,6 @@
 {
   "name": "status-page",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "main": "index.js",
   "repository": "git@github.com:orbs-network/status-page.git",
   "author": "Kirill Maksimov <kirill@orbs.com>",
@@ -18,7 +18,7 @@
     "moment": "^2.26.0",
     "node-fetch": "^2.6.0",
     "orbs-client-sdk": "^2.3.1",
-    "pg": "^7.14.0",
+    "pg": "^8.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",

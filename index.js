@@ -1,6 +1,6 @@
 const express = require("express");
 const port = process.env.PORT || 3000;
-const _ = require("lodash");
+const { map } = require("lodash");
 const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
 const { getElectionsStatus } = require('./elections');
 const { version } = require('./package.json');
@@ -14,10 +14,10 @@ const recordsRetention = Number(process.env.RETENTION || 60);
 const db = require("./db");
 
 function collectMetrics() {
-    _.map(ips, async ({ name, host }) => {
+    map(ips, async ({ name, host }) => {
         const batch = await db.getLastBatch();
 
-        _.map(vchains, async (vchain) => {
+        map(vchains, async (vchain) => {
             try {
                 const status = await getStatus({ data: getEndpoint(host, vchain) }, 1000, 60000);
                 await db.addStatus(batch + 1, name, Number(vchain), status.data);

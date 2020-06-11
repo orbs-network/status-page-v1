@@ -1,5 +1,5 @@
 
-exports.up = async function (knex) {
+exports.up = function (knex) {
     return knex.schema.createTable("status", table => {
         table.integer("batch").notNullable();
         table.timestamp("created_at").defaultTo(knex.fn.now());
