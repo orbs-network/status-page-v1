@@ -1,5 +1,5 @@
 const db = require("knex")(require("./knexfile")[process.env.NODE_ENV || "development"]);
-const { get, reduce, map, intersection, reject, isEmpty, find } = require("lodash");
+const { get, reduce, map, intersection, reject, isEmpty, groupBy } = require("lodash");
 
 async function migrate() {
     return db.migrate.latest();
@@ -73,6 +73,17 @@ async function getStatus(lastBatch, hosts) {
     }, {});
 }
 
+async function getServiceStatus(lastBatch) {
+    const rows = await db("service_status").where({ batch: lastBatch - 1 }).orderBy("validator", "asc");
+
+    return reduce(rows, (status, row) => {
+        const validatorBucket = status[row.validator] || {};
+        validatorBucket[row.service] = row;
+        status[row.validator] = validatorBucket;
+        return status;
+    }, {});
+}
+
 async function removeOldRecords(batches) {
     const lastBatch = await getLastBatch();
     return db("status").where("batch", "<", lastBatch - batches).del();
@@ -114,6 +125,7 @@ module.exports = {
     addServiceStatus,
     getLastBatch,
     getStatus,
+    getServiceStatus,
     removeOldRecords,
 
     subscribe,

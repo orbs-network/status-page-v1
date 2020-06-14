@@ -1,6 +1,6 @@
 const express = require("express");
 const port = process.env.PORT || 3000;
-const { map } = require("lodash");
+const { map, fromPairs } = require("lodash");
 const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
 const { getElectionsStatus } = require('./elections');
 const { version } = require('./package.json');
@@ -52,13 +52,22 @@ async function showStatus(req, res) {
     const lastBatch = await db.getLastBatch();
     const batch = statusId || lastBatch;
     const status = await db.getStatus(batch, ips);
+    const serviceStatus = await db.getServiceStatus(batch);
+
+    const model = fromPairs(map(ips, ( { name, host } ) => {
+        return [name, {
+                vchains: status[name],
+                services: serviceStatus[name],
+            }
+        ]
+    }));
 
     res.send({
         version,
         batch,
         lastBatch,
         vchains,
-        status,
+        status: model,
         descriptions,
         prisms: prismUrls,
         hosts: ips,
