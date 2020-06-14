@@ -20,6 +20,21 @@ async function addStatus(batch, validator, vchain, data) {
     });
 }
 
+async function addServiceStatus(batch, validator, service, data) {
+    console.log(data);
+    const { Timestamp, Status, Error, Payload } = data;
+
+    return db("service_status").insert({
+        batch,
+        validator,
+        service,
+        status: Status,
+        error: Error,
+        created_at: Timestamp,
+        data: Payload,
+    });
+}
+
 async function subscribe(validator, telegramId, telegramUsername) {
     return db("telegram_notifications").insert({
         validator,
@@ -96,6 +111,7 @@ async function detectChanges(lastBatch, beforeState, afterState) {
 module.exports = {
     migrate,
     addStatus,
+    addServiceStatus,
     getLastBatch,
     getStatus,
     removeOldRecords,

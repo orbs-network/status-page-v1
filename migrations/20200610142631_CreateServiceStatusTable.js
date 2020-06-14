@@ -3,7 +3,10 @@ exports.up = function (knex) {
         table.integer("batch").notNullable();
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table.text("validator").notNullable();
-        table.json('data').nullable();
+        table.text("service").notNullable();
+        table.text("status").nullable();
+        table.text("error").nullable();
+        table.json("data").nullable();
     });
 };
 

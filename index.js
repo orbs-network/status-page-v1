@@ -4,6 +4,7 @@ const { map } = require("lodash");
 const { getStatus, getEndpoint } = require("@orbs-network/orbs-nebula/lib/metrics");
 const { getElectionsStatus } = require('./elections');
 const { version } = require('./package.json');
+const fetch = require("node-fetch");
 
 const vchains = process.env.VCHAINS.split(",");
 const descriptions = JSON.parse(process.env.VCHAIN_DESCRIPTIONS || `{}`);
@@ -13,9 +14,23 @@ const recordsRetention = Number(process.env.RETENTION || 60);
 
 const db = require("./db");
 
+const services = ["management-service", "signer"];
+
 function collectMetrics() {
     map(ips, async ({ name, host }) => {
         const batch = await db.getLastBatch();
+
+        map(services, async (service) => {
+            try {
+                const request = await fetch(`http://${host}/services/${service}/status`);
+                if (request.ok) {
+                    const status = await request.json();
+                    await db.addServiceStatus(batch + 1, name, service, status);
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        })
 
         map(vchains, async (vchain) => {
             try {
