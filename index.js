@@ -1,6 +1,6 @@
 const express = require("express");
 const port = process.env.PORT || 3000;
-const { map, fromPairs } = require("lodash");
+const { map, fromPairs, values, sortBy, last, get } = require("lodash");
 const { getElectionsStatus } = require('./elections');
 const { version } = require('./package.json');
 const { collectMetrics } = require("./metrics");
@@ -26,9 +26,13 @@ async function showStatus(req, res) {
         ]
     }));
 
+    const currentVirtualChains = get(last(sortBy(map(values(serviceStatus), "management-service"), s => {
+        return new Date(s.created_at).getTime();
+    })), "data.CurrentVirtualChains");
+
     res.send({
         version,
-        vchains,
+        vchains: currentVirtualChains,
         status: model,
         descriptions,
         prisms: prismUrls,
