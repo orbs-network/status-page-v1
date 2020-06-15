@@ -5,6 +5,7 @@
   "repository": "git@github.com:orbs-network/status-page.git",
   "author": "Kirill Maksimov <kirill@orbs.com>",
   "license": "MIT",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",

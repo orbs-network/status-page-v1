@@ -3,6 +3,7 @@ import React from 'react';
 import Dashboard from './Dashboard';
 
 import FakeData from './FakeData';
+import {draw} from "svelte/transition";
 
 const data = [];
 
@@ -45,7 +46,20 @@ for (let i = 0; i < 18; i ++) {
 
 const vchains = ['1000000', '1000001', '1000002', '1000003', '1000004'];
 
+const tryToReachServer = async () => {
+  console.log('Trying to fetch');
+  try {
+    await fetch('/status.json');
+    await fetch('/elections.json');
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+tryToReachServer();
+
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
