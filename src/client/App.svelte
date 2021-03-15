@@ -2,7 +2,6 @@
   import { size, isEmpty, keys, get, find } from "lodash";
   import { onMount } from "svelte";
   import Info from "./Info.svelte";
-  import Elections from "./Elections.svelte";
   import Spinner from "./Spinner.svelte";
 
   let isFetched = false;
@@ -74,8 +73,6 @@
       <Spinner />
     </div>
   {/if}
-
-  <Elections />
 
   <table>
     <tr class="thead">
