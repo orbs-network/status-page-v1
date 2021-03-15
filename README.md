@@ -1,4 +1,4 @@
-# Status page
+# Status page (Orbs V1)
 
 ## Configuration
 
