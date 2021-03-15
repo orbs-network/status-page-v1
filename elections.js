@@ -96,9 +96,9 @@ let pid;
 })();
 
 function getElectionsStatus() {
-    if (!currentElectionsData) {
-        return initElectionsDataPromise;
-    }
+    // if (!currentElectionsData) {
+    //     return initElectionsDataPromise;
+    // }
 
     return Promise.resolve(currentElectionsData);
 }
