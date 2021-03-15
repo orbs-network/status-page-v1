@@ -33,10 +33,15 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL,
+    connection: `${process.env.DATABASE_URL}?sslmode=require`,
     migrations: {
       tableName: 'migrations'
     },
-    ssl: true
+    ssl: true,
+    pool: {
+      min: 2,
+      max: 3,
+      propagateCreateError: false
+    }
   }
 };

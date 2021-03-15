@@ -71,17 +71,17 @@ async function getServerElections() {
 }
 
 const poller = async () => {
-    try {
-        let result = await getServerElections();
-        if (result.ok) {
-            currentElectionsData = Object.assign({}, result, { sampleTs: nowTime() });
-        }
-    } catch (err) {
-        console.log('Poller round failed', err);
-    }
+    // try {
+    //     let result = await getServerElections();
+    //     if (result.ok) {
+    //         currentElectionsData = Object.assign({}, result, { sampleTs: nowTime() });
+    //     }
+    // } catch (err) {
+    //     console.log('Poller round failed', err);
+    // }
 
-    // Schedule another polling round
-    pid = setTimeout(poller, 10 * 1000);
+    // // Schedule another polling round
+    // pid = setTimeout(poller, 10 * 1000);
 };
 
 let pid;
