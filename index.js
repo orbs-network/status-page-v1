@@ -19,19 +19,19 @@ async function runloop() {
 }
 
 async function collectMetrics() {
-    const timeNowNano = new Date().getTime() * 1000;
+    const timeNowMilli = new Date().getTime();
     let newStatus = {};
     const txs = [];
     _.map(ips, async ({ name, host }) => {
         _.map(vchains, async (vchain) => {
             txs.push(fetchJson(`http://${host}/vchains/${vchain}/metrics`).then(status => {
-                const blockTime = _.isObject(status['BlockStorage.LastCommitted.TimeNano']) ? status['BlockStorage.LastCommitted.TimeNano'].Value : 0
+                const blockTime = _.isObject(status['BlockStorage.LastCommitted.TimeNano']) ? Math.round(status['BlockStorage.LastCommitted.TimeNano'].Value / 1000000) : 0
                 const validatorBucket = newStatus[name] || {};
                 
                 validatorBucket[vchain] = {
                     blockHeight: _.isObject(status['BlockStorage.BlockHeight']) ? status['BlockStorage.BlockHeight'].Value : 0,
-                    blockTimeNano: blockTime,
-                    status: (blockTime + 600000000) > timeNowNano ? "green" : "red",
+                    blockTimeMilli: blockTime,
+                    status: (blockTime + 600000) > timeNowMilli ? "green" : "red",
                     version: _.isObject(status['Version.Semantic']) ? status['Version.Semantic'].Value : "",
                     commit: _.isObject(status['Version.Commit']) ? status['Version.Commit'].Value : "",
                 };

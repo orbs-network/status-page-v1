@@ -7,166 +7,191 @@
         "5555"
     ],
     "status": {
-       "us-2": {
-        "5555": {
-          "blockHeight": 951033,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+        "us-1": {
+          "5555": {
+            "blockHeight": 951936,
+            "blockTimeMilli": 1615912000621,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "7777": {
+            "blockHeight": 5090308,
+            "blockTimeMilli": 1615912002287,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "8888": {
+            "blockHeight": 2860093,
+            "blockTimeMilli": 1615911998679,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9998": {
+            "blockHeight": 2711718,
+            "blockTimeMilli": 1615911993767,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9999": {
+            "blockHeight": 2861147,
+            "blockTimeMilli": 1615911995694,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          }
         },
-        "7777": {
-          "blockHeight": 5089405,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+        "us-2": {
+          "5555": {
+            "blockHeight": 951936,
+            "blockTimeMilli": 1615912000621,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "7777": {
+            "blockHeight": 5090308,
+            "blockTimeMilli": 1615912002287,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "8888": {
+            "blockHeight": 2860093,
+            "blockTimeMilli": 1615911998679,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9998": {
+            "blockHeight": 2711718,
+            "blockTimeMilli": 1615911993767,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9999": {
+            "blockHeight": 2861147,
+            "blockTimeMilli": 1615911995694,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          }
         },
-        "8888": {
-          "blockHeight": 2859190,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+        "us-4": {
+          "5555": {
+            "blockHeight": 951936,
+            "blockTimeMilli": 1615912000621,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "7777": {
+            "blockHeight": 5090308,
+            "blockTimeMilli": 1615912002287,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "8888": {
+            "blockHeight": 2860093,
+            "blockTimeMilli": 1615911998679,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9998": {
+            "blockHeight": 2711718,
+            "blockTimeMilli": 1615911993767,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9999": {
+            "blockHeight": 2861147,
+            "blockTimeMilli": 1615911995694,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          }
         },
-        "9998": {
-          "blockHeight": 2710817,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+        "us-3": {
+          "5555": {
+            "blockHeight": 951936,
+            "blockTimeMilli": 1615912000621,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "7777": {
+            "blockHeight": 5090308,
+            "blockTimeMilli": 1615912002287,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "8888": {
+            "blockHeight": 2860093,
+            "blockTimeMilli": 1615911998679,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9998": {
+            "blockHeight": 2711718,
+            "blockTimeMilli": 1615911993767,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9999": {
+            "blockHeight": 2861147,
+            "blockTimeMilli": 1615911995694,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          }
         },
-        "9999": {
-          "blockHeight": 2860245,
-          "status": "green",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+        "us-5": {
+          "5555": {
+            "blockHeight": 951936,
+            "blockTimeMilli": 1615912000621,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "7777": {
+            "blockHeight": 5090308,
+            "blockTimeMilli": 1615912002287,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "8888": {
+            "blockHeight": 2860093,
+            "blockTimeMilli": 1615911998679,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9998": {
+            "blockHeight": 2711718,
+            "blockTimeMilli": 1615911993767,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          },
+          "9999": {
+            "blockHeight": 2861147,
+            "blockTimeMilli": 1615911995694,
+            "status": "green",
+            "version": "v1.3.17",
+            "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
+          }
         }
-      },
-      "us-1": {
-        "5555": {
-          "blockHeight": 951033,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "7777": {
-          "blockHeight": 5089405,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "8888": {
-          "blockHeight": 2859190,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9998": {
-          "blockHeight": 2710817,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9999": {
-          "blockHeight": 2860245,
-          "status": "green",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        }
-      },
-      "us-4": {
-        "5555": {
-          "blockHeight": 951033,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "7777": {
-          "blockHeight": 5089405,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "8888": {
-          "blockHeight": 2859190,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9998": {
-          "blockHeight": 2710817,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9999": {
-          "blockHeight": 2860245,
-          "status": "green",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        }
-      },
-      "us-5": {
-        "5555": {
-          "blockHeight": 951033,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "7777": {
-          "blockHeight": 5089405,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "8888": {
-          "blockHeight": 2859190,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9998": {
-          "blockHeight": 2710817,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9999": {
-          "blockHeight": 2860245,
-          "status": "green",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        }
-      },
-      "us-3": {
-        "5555": {
-          "blockHeight": 951033,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "7777": {
-          "blockHeight": 5089405,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "8888": {
-          "blockHeight": 2859190,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9998": {
-          "blockHeight": 2710817,
-          "status": "red",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        },
-        "9999": {
-          "blockHeight": 2860245,
-          "status": "green",
-          "version": "v1.3.17",
-          "commit": "56851326ad7b74d39631b96ac893f46f7b098d92"
-        }
-      }
     },
     "descriptions": {
         "7777": "x",
