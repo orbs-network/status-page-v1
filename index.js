@@ -15,7 +15,6 @@ const ips = JSON.parse(process.env.IPS || `{"nodes":[]}`).nodes;
 let currentStatus = {};
 async function runloop() {
     currentStatus = await collectMetrics();
-    console.log(JSON.stringify(currentStatus, null, 2))
 }
 
 async function collectMetrics() {
@@ -76,7 +75,7 @@ async function showStatus(req, res) {
 }
 
 function main(app) {
-    const processorTask = new TaskLoop(() => runloop(), 30000);
+    const processorTask = new TaskLoop(() => runloop(), 300000);
     processorTask.start();
     app.use(express.static("public"));
     app.get("/status.json", showStatus);
