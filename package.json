@@ -1,25 +1,18 @@
 {
   "name": "status-page",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "main": "index.js",
   "repository": "git@github.com:orbs-network/status-page.git",
-  "author": "Kirill Maksimov <kirill@orbs.com>",
+  "author": "Noam Berg <noam@orbs.com>",
   "license": "MIT",
   "dependencies": {
-    "@orbs-network/orbs-nebula": "^1.6.2",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
-    "knex": "^0.20.3",
     "lodash": "^4.17.15",
-    "node-fetch": "^2.6.0",
-    "orbs-client-sdk": "^2.3.1",
-    "pg": "^7.14.0",
-    "sqlite3": "^4.1.0",
-    "telegraf": "^3.34.1",
-    "telegraf-inline-menu": "^4.0.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "css-loader": "^3.2.0",
-    "dotenv": "^8.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "style-loader": "^1.0.0",
     "svelte": "^3.12.1",
@@ -30,8 +23,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "migrate": "knex migrate:latest",
-    "rollback": "knex migrate:rollback",
     "dev": "webpack-dev-server --port 8000",
     "build": "webpack"
   }
