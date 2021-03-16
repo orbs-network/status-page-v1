@@ -68,7 +68,7 @@ async function fetchJson(url) {
 async function showStatus(req, res) {
     res.status(200).send({
         vchains,
-        currentStatus,
+        status: currentStatus,
         descriptions,
         prisms: prismUrls,
         hosts: ips,
