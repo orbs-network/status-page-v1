@@ -2,7 +2,7 @@
 
 module.exports = {
   development: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       database: 'status_page',
       user: 'username',
@@ -40,7 +40,7 @@ module.exports = {
     ssl: true,
     pool: {
       min: 2,
-      max: 3,
+      max: 10,
       propagateCreateError: false
     }
   }
