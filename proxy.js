@@ -1,5 +1,4 @@
 const status = require('./fixtures/status.json');
-const eth = require('./fixtures/eth.json');
 
 module.exports = function (app) {
     app.get('/status.json', (req, res) => {
@@ -8,14 +7,5 @@ module.exports = function (app) {
         }, 3000);
     });
 
-    app.get('/elections.json', (req, res) => {
-        res.status(200).send({
-            eth,
-            elections: {
-                next: 9600700,
-                inProgress: false,
-            }
-        });
-    });
     return app;
 };
